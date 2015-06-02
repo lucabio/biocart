@@ -11,7 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/','HomeController@index');
+Route::get('login','SessionsController@create');
+Route::get('logout','SessionsController@destroy');
+Route::get('add/{product_id}','SessionsController@addProduct');
+
+
+Route::resource('sessions','SessionsController');
