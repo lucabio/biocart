@@ -43,7 +43,7 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::to('/')->with('flash_messages','You must logged in to use cart functionality!');
 		}
 	}
 });

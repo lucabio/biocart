@@ -14,7 +14,13 @@
 Route::get('/','HomeController@index');
 Route::get('login','SessionsController@create');
 Route::get('logout','SessionsController@destroy');
-Route::get('add/{product_id}','SessionsController@addProduct');
+Route::post('add',array('before'=>'auth','uses'=>'SessionsController@addProduct'));
+Route::get('shop','HomeController@indexShop');
+Route::get('empty','SessionsController@emptyCart');
+Route::get('remove/{product_id}','SessionsController@removeProduct');
+Route::post('update','SessionsController@updateQuantityProduct');
+Route::get('shop/user_details','HomeController@userDetails');
+Route::post('store','UserController@store');
 
 
 Route::resource('sessions','SessionsController');

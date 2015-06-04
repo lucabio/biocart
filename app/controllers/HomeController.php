@@ -18,7 +18,16 @@ class HomeController extends BaseController {
 	public function index()
 	{
         $products = Product::all();
+        //var_dump(Session::all());
 		return View::make('home/index',array('products'=>$products));
 	}
 
+    public function indexShop(){
+        //var_dump(Session::all());
+        return View::make('shop/index');
+    }
+
+    public function userDetails(){
+        return View::make('shop/user_details');
+    }
 }

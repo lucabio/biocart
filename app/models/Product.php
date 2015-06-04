@@ -27,4 +27,28 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 
     protected $guarded = ['*'];
 
+
+    public static function getItemInCart(){
+        $total_item = 0;
+        if (Session::has('items')) {
+            $item_array = Session::get('items');
+            foreach($item_array as $key=>$value)
+            {
+                $total_item += $value['item_quantity'];
+            }
+        }
+        return $total_item;
+    }
+
+    public static function getTotalInCart(){
+        $total_price = 0;
+        if (Session::has('items')) {
+            $item_array = Session::get('items');
+            foreach($item_array as $key=>$value)
+            {
+                $total_price += $value['item_price'];
+            }
+        }
+        return $total_price;
+    }
 }

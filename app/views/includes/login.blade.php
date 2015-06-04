@@ -1,7 +1,4 @@
 <div class="login">
-    @if(Session::get('flash_messages'))
-        {{ '<span class=\'error\'>'. Session::get('flash_messages') . '</span>' }}
-    @endif
     @if(Auth::guest())
     {{ Form::open(['route' => 'sessions.store']) }}
         <p>Login Form</p>
@@ -19,8 +16,15 @@
 
     {{ Form::close() }}
     @else
+    <div>
         <p> Welcome <b>{{ Auth::user()->username}}</b></p>
 
         <p>{{ HTML::linkAction('SessionsController@destroy', 'LOGOUT') }}</p>
+
+
+        <p>You have {{ Product::getItemInCart() }} product/s in your cart</p>
+        <p><a href="{{ URL::to('shop') }}">Proceed to checkout</a></p>
+        <p><a href="{{ URL::to('empty') }}">Empty cart</a></p>
+    </div>
     @endif
 </div>

@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title>InAsta</title>
+    <title>-BCart-</title>
 
     <!-- Mobile viewport optimized: j.mp/bplateviewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,5 +9,5 @@
     {{ HTML::style('css/style.css'); }}
     {{ HTML::style('css/responsive.css'); }}
     {{ HTML::style('css/menu.css'); }}
-    {{ HTML::style('css/bootstrap.min.css'); }}
+    {{ HTML::style('css/bootstrap.css'); }}
 </head>

@@ -92,20 +92,20 @@
 	.download div.b4{ width:120px; /*height:35px;*/ padding:10px 5px 0 5px; float:left; /*background:#eee;*/ border-top:1px solid #EEE; margin:1px; text-align:center;}
 	
 	/* form */
-	form label{ width:45%; float:left; font-size:14px; padding:4px; background:#eee; }
+	/*form label{ width:45%; float:left; font-size:14px; padding:4px; background:#eee; }
 	form input{ width:50%; float:left; font-size:14px; padding:5px; background:#FFF; border:1px solid #eee;}
 	form div{ width:50%; background:#F8FDA8; margin-bottom:10px; float:left;}
-	form div p{ font-size:11px; margin:0; float:left;}
+	form div p{ font-size:11px; margin:0; float:left;}*/
     
-	/*R*/form select{ width:50%; float:left; font-size:14px; padding:5px; background:#FFF; border:1px solid #eee;}
-	/*R*/form div.mes2{ width:100%; margin:10px 0; float:left; font-size:12px;}
-	/*R*/form div.mes{ width:100%; background:#CCC; margin-bottom:10px; float:left;}
-	/*R*/form div.mes label{ width:98%; font-size:14px; padding:4px 1%; background:#eee; margin-bottom:10px; }
-	/*R*/form div.mes input{ width:50%; font-size:14px; padding:5px; background:#FFF; border:1px solid #eee;}
-	/*R*/form div.rice{ width:50%; height:45px; background:#E6FFFD; margin-bottom:10px; float:left;}
-	/*R*/form div.data { width:50%; height:45px; background:#F8FFDF; margin-bottom:10px; float:left; }
-	/*R*/form div.data label{ width:21%; font-size:14px; padding:4px; background:#eee; margin-bottom:10px; }
-	/*R*/form div.data input{ width:25%; font-size:14px; padding:5px; background:#FFF; border:1px solid #eee;}
+	/*form select{ width:50%; float:left; font-size:14px; padding:5px; background:#FFF; border:1px solid #eee;}
+	form div.mes2{ width:100%; margin:10px 0; float:left; font-size:12px;}
+	form div.mes{ width:100%; background:#CCC; margin-bottom:10px; float:left;}
+	form div.mes label{ width:98%; font-size:14px; padding:4px 1%; background:#eee; margin-bottom:10px; }
+	form div.mes input{ width:50%; font-size:14px; padding:5px; background:#FFF; border:1px solid #eee;}
+	form div.rice{ width:50%; height:45px; background:#E6FFFD; margin-bottom:10px; float:left;}
+	form div.data { width:50%; height:45px; background:#F8FFDF; margin-bottom:10px; float:left; }
+	form div.data label{ width:21%; font-size:14px; padding:4px; background:#eee; margin-bottom:10px; }
+	form div.data input{ width:25%; font-size:14px; padding:5px; background:#FFF; border:1px solid #eee;}
 
 	fieldset { display: block; margin: 2px; padding: 0.35em; border: 2px solid #eee;}
 	fieldset p{ width:25%; float:left; background:#D8F7CA; margin-bottom:5px; font-size:14px;}
@@ -113,7 +113,7 @@
 	form div.btn { width:50%;  margin:10px 25%;}
 	form div.btn input{ width:25%; margin:10px 12%; background:#3C90B7; color:#FFF; box-shadow: 5px 5px 5px #dedede;}
 	form div.btn input.no{ width:25%; margin:10px 12%; background:#5ca8cb; color:#FFF; box-shadow: 5px 5px 5px #dedede;}
-	form div.btn input:hover{ width:25%; margin:10px 12%; background:#eee; color:#666; box-shadow: 5px 5px 5px #dedede;}
+	form div.btn input:hover{ width:25%; margin:10px 12%; background:#eee; color:#666; box-shadow: 5px 5px 5px #dedede;}*/
 	
 	/*** Post POPUP *** 8 aprile */
 	.testa-pop   {width:100%; margin:0; height:90px; float:left;

@@ -44,51 +44,122 @@ class SessionsController extends BaseController{
         return Redirect::action('HomeController@index');
     }
 
-    //add element to cart
-    public function addProduct($id){
-        $prod = Product::find($id);
+    /**
+     * Main funcion for cart
+     * this function ad product ad update the array with the quantity
+     * passed in input form
+     */
+    public function addProduct(){
+        if(Input::has('product_id')){
+            $prod = Product::find(Input::get('product_id'));
 
-        if (Session::has('items')) {
-            Session::push('items', [
-                'item_id' => $prod->id,
-                'item_quantity' => 1
-            ]);
-            $array = Session::get('items');
-            $total = array(); //move outside foreach loop because we don't want to reset it
+            if (Session::has('items')) {
+                Session::push('items', [
+                    'item_id' => $prod->id,
+                    'item_quantity' => Input::get('quantity'),
+                    'item_price'=>$prod->price,
+                    'item_name'=>$prod->name,
+                    'item_brand'=>$prod->brand
 
-            foreach ($array as $key => $value) {
+                ]);
+                $array = Session::get('items');
+                $total = array();
+                $name =  array();
+                $brand =  array();
 
-                $id = $value['item_id'];
-                $quantity = $value['item_quantity'];
+                foreach ($array as $key => $value) {
 
-                if (!isset($total[$id])) {
-                    $total[$id] = 0;
+                    $id = $value['item_id'];
+                    $quantity = $value['item_quantity'];
+                    $_name = $value['item_name'];
+                    $_brand = $value['item_brand'];
+
+                    if (!isset($total[$id])) {
+                        $total[$id] = 0;
+                    }
+
+                    $total[$id] += $quantity;
+                    $name[$id]  = $_name;
+                    $brand[$id] = $_brand;
+
+                    //echo $total[$id];
+                }
+                $items = array();
+
+                foreach($total as $item_id => $item_quantity) {
+                    $_curr_prod = Product::find($item_id);
+                    $items[] = array(
+                        'item_id' => $item_id,
+                        'item_quantity' => $item_quantity,
+                        'item_price'=>$_curr_prod->price * $item_quantity,
+                        'item_name'=>$name[$item_id],
+                        'item_brand'=>$brand[$item_id]
+                    );
                 }
 
-                $total[$id] += $quantity;
-                //echo $total[$id];
+                Session::put('items', $items);
+            } else {
+                Session::put('items', [
+                    0 => [
+                        'item_id' => $prod->id,
+                        'item_quantity' => Input::get('quantity'),
+                        'item_price'=>$prod->price,
+                        'item_name'=>$prod->name,
+                        'item_brand'=>$prod->brand
+                    ]
+                ]);
             }
-            $items = array();
-
-            foreach($total as $item_id => $item_quantity) {
-                $items[] = array(
-                    'item_id' => $item_id,
-                    'item_quantity' => $item_quantity
-                );
-            }
-
-            Session::put('items', $items);
-        } else {
-            Session::put('items', [
-                0 => [
-                    'item_id' => $prod->id,
-                    'item_quantity' => 1,
-                    'item_price'=>$prod->price
-                ]
-            ]);
         }
-        var_dump(Session::all());
-        //$products = Product::all();
         return Redirect::action('HomeController@index');
+    }
+
+    /**
+     * Update Quantity
+     * update only the items array
+     */
+    public function updateQuantityProduct(){
+        if(Input::has('product_id')){
+            $prod = Product::find(Input::get('product_id'));
+
+            if (Session::has('items')) {
+                $array = Session::get('items');
+                foreach($array as $key => $value){
+                    if($value['item_id']==Input::get('product_id')){
+
+                        Session::put('items.'.$key, [
+                                'item_id' => $prod->id,
+                                'item_quantity' => Input::get('quantity'),
+                                'item_price'=>$prod->price * Input::get('quantity'),
+                                'item_name'=>$prod->name,
+                                'item_brand'=>$prod->brand
+                        ]);
+                    }
+                }
+                return Redirect::action('HomeController@indexShop');
+            }
+        }
+    }
+
+    public function emptyCart(){
+        if(Session::has('items')){
+            Session::forget('items');
+        }
+        return Redirect::action('HomeController@index');
+    }
+
+    public function removeProduct($id){
+        if(Session::has('items')){
+            $array = Session::get('items');
+            foreach($array as $key => $value){
+                if($value['item_id']==$id){
+                    Session::forget('items.'.$key);
+                }
+            }
+        }
+
+        if(count(Session::get('items'))===0){
+            Session::forget('items');
+        }
+        return Redirect::action('HomeController@indexShop');
     }
 }
