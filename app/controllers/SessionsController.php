@@ -36,7 +36,9 @@ class SessionsController extends BaseController{
     }
 
 
-    //logout
+    /**
+     * Logout function
+     */
     public function destroy(){
 
         Auth::logout();
@@ -140,6 +142,9 @@ class SessionsController extends BaseController{
         }
     }
 
+    /**
+     * Function to set empty cart
+     */
     public function emptyCart(){
         if(Session::has('items')){
             Session::forget('items');
@@ -147,6 +152,9 @@ class SessionsController extends BaseController{
         return Redirect::action('HomeController@index');
     }
 
+    /**
+     * Remove product from the items array
+     */
     public function removeProduct($id){
         if(Session::has('items')){
             $array = Session::get('items');

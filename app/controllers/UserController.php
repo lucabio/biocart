@@ -6,7 +6,10 @@
  * Time: 15:02
  */
 class UserController extends BaseController {
-
+    /**
+     * Store User
+     * set only address and shipping_address
+     */
     public function store(){
         $validation = Validator::make(Input::all(),
             [
