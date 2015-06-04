@@ -39,4 +39,5 @@ user : max
 pw   : power
 
 
+#Note : debug mode is set to false,to change this go to app/config/app.php and change 'debug' to true
 
