@@ -1,13 +1,35 @@
 # biocart
 This application is builded with laravel 4.2.
 
-It's necessary to install fork this repository and install laravel to run the project
+To run the project you need to :
 
-<pre>
-http://laravel.com/docs/4.2
-</pre>
+- Clone that repo
+- Install laravel via composer
 
-#User for test:
+  <pre>
+  http://laravel.com/docs/4.2
+  </pre>
+  
+- set the app/config/database.php for db credentials
+- run 
+  <pre>
+  php artisan migrate
+  </pre>
+  to generate the table in database
+
+- run 
+  <pre>
+  php artisan db:seed
+  </pre>
+  to populate the table with example rows
+
+- run 
+ <pre>
+  php artisan serve
+  </pre>
+  to see the project in action
+
+User for test:
 1.
 user : test
 pw   : test
