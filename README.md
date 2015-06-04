@@ -29,12 +29,12 @@ To run the project you need to :
   </pre>
   to see the project in action
 
-User for test:
-1.
+User for test:<br>
+1.<br>
 user : test
 pw   : test
 
-2.
+2.<br>
 user : max
 pw   : power
 
