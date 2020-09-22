@@ -1,4 +1,4 @@
-# biocart
+# PHP Cart
 This application is builded with laravel 4.2.
 
 To run the project you need to :
